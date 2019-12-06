@@ -18,8 +18,14 @@ public class Application {
 	 */
     	double[] prices = { 49.99, 19.99, 9.99, 14.59, 99.99 };
     	double[] rates = { 20.0, 10.0, 10.0, 5.0, 20.0 };
-	
-	
+    	
+    	for (int i = 0; i < prices.length; i++) {
+    		System.out.println("With VAT=€" + prices[i] + " , without VAT=€" + calculateWithoutTax(prices[i], rates[i], false) + " (rate=" + rates[i] + "%)");
+    	}
+    	System.out.println();
+    	for (int i = 0; i < prices.length; i++) {
+    		System.out.println("With VAT=€" + prices[i] + " , without VAT=€" + calculateWithoutTax(prices[i], rates[i], true) + " (rate=" + rates[i] + "%)");
+    	}
     }
 
     private static double calculateWithoutTax(double price, double rate, boolean rounded) {
@@ -29,7 +35,7 @@ public class Application {
 	 * Retourne le résultat arrondi ou non en fonction de rounded = false ou
 	 * rounded = true. Rien à changer ci-dessous.
 	 */
-    	
+    	result = price * 100.0 / (100.0 + rate);
     	
     	return rounded ? round(result) : result;
     }
@@ -40,6 +46,7 @@ public class Application {
 	 * plusieurs méthodes pour arrondir en Java, travail de recherche sur
 	 * Google...
 	 */
+    	result = Math.rint(result * 100) / 100;
     	return result;
     }
 }
