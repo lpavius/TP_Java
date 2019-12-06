@@ -6,13 +6,14 @@ public class Application {
     	
     	Cowboy luckyLuke = createLuckyLuke();
     	Cowboy joeDalton = createJoeDalton();
-    	System.out.println(luckyLuke);
-    	System.out.println(joeDalton);
-/*    	System.out.println("Before shooting:");
+
+    	System.out.println("Before shooting:");
+    	
     	print(luckyLuke, joeDalton);
     	shootUntilDeath(luckyLuke, joeDalton);
+    	
     	System.out.println("After shooting:");
-    	print(luckyLuke, joeDalton);*/
+    	print(luckyLuke, joeDalton);
     }
 
     /**
@@ -25,20 +26,24 @@ public class Application {
     
     private static void shootUntilDeath(Cowboy luckyLuke, Cowboy joeDalton) {
 	// To be implemented
+    	while (luckyLuke.isDead() == false && joeDalton.isDead() == false){
+        	luckyLuke.shoot(joeDalton);
+        	joeDalton.shoot(luckyLuke);
+    	}
     }
 
     private static Cowboy createLuckyLuke() {
 	// To be implemented
-    	Weapon weapon = new Weapon("Revolver Colt", 17, 2);
-    	Cowboy cowboy = new Cowboy("Lucky Luke", 100, weapon);
+    	Weapon weapon = new Weapon("Revolver Colt", 5, 2);
+    	Cowboy cowboy = new Cowboy("Lucky Luke", 5, weapon);
     	
     	return cowboy;
     }
 
     private static Cowboy createJoeDalton() {
 	// To be implemented
-    	Weapon weapon = new Weapon("Fusil Winchester", 12, 3);
-    	Cowboy cowboy = new Cowboy("Joe Dalton", 90, weapon);
+    	Weapon weapon = new Weapon("Fusil Winchester", 10, 1);
+    	Cowboy cowboy = new Cowboy("Joe Dalton", 5, weapon);
     	
     	return cowboy;
     }

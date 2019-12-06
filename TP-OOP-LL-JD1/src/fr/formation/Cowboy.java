@@ -53,17 +53,18 @@ public class Cowboy {
      */
     public void shoot(Cowboy target) {
 	// To be implemented
-    	int coup = 10 + (int) (Math.random() * (50 - 10) + 1);
     	
-    	if (target.isDead() == true) {
-    		System.out.println(target.name + " est mort.");
-    	} else {
-    		System.out.println(this.name + " tire sur " + target.name);
-    		target.energy -= coup;
-    		if (target.energy < 0) {
+    	if (this.isDead() != true && target.isDead() == false) {
+    		//System.out.println(this.name + " tire sur " + target.name);
+    		target.energy -= this.weapon.fire();
+    		//System.out.println("balles: " + this.weapon.getBullets());
+    		if (target.energy <= 0) {
     			target.energy = 0;
+    			//System.out.println(target.name + " est mort.");
     		}
-    	}	
+    		//System.out.println(target.name + " vie: " + target.energy);
+    		//System.out.println(target.isDead());
+    	}
     }
 
     /**

@@ -55,10 +55,24 @@ public class Weapon {
      */
     public int fire() {
 	// To be implemented
-    	return 0;
+    	if (this.bullets <= 0) {
+    		this.bullets = 0;
+    		//System.out.println("Le " + this.name + " n'a plus de balle.");
+    		return this.damages;
+    	}
+    	this.bullets--;
+    	return this.damages;
     }
 
-    @Override
+    public int getBullets() {
+		return bullets;
+	}
+
+	public void setBullets(int bullets) {
+		this.bullets = bullets;
+	}
+
+	@Override
     public String toString() {
     	return "{name=" + name + ", bullets=" + bullets + ", damages=" + damages
     			+ "}";
