@@ -46,7 +46,7 @@ public class Application {
 	 * plusieurs méthodes pour arrondir en Java, travail de recherche sur
 	 * Google...
 	 */
-    	result = Math.rint(result * 100) / 100;
+    	result = (double)Math.round(result * 100) / 100;
     	return result;
     }
 }
